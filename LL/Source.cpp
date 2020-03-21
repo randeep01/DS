@@ -6,7 +6,7 @@ public:
 	int data;
 	Node* ptr;
 
-	Node(int data) {
+	Node(int data) :ptr{ nullptr }, data{ 0 } {
 		this->data = data;
 	}
 };
@@ -17,14 +17,10 @@ public:
 	void add(int i)
 	{
 		Node*  temp = new Node(i);
-		if (head==NULL) {
-			head = temp;
-		}
-		else {
-			head->ptr = temp;
-			temp->ptr = head;
-		}
+		temp->ptr = head;
+		head = temp;
 	}
+
 };
 
 int main() {
@@ -32,6 +28,9 @@ int main() {
 	l.add(1);
 	l.add(2);
 	l.add(3);
+	l.add(4);
+	l.add(5);
+	l.add(6);
 
 	Node* head = l.head;
 
