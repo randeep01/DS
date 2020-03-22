@@ -20,6 +20,44 @@ public:
 		temp->ptr = head;
 		head = temp;
 	}
+	void insertAfter(Node* prev, int data) {
+		if (prev == nullptr) {
+			cout << "prev can't be null\n";
+			return;
+		}
+
+		Node* node = new Node(data);
+		node->ptr = prev->ptr;
+
+		prev->ptr = node;
+
+
+	}
+
+
+	void addAtEnd(int i) {
+		Node* temp = new Node(i);
+		
+		Node* last = head;
+		if(head == nullptr) {
+			head = temp;
+			return;
+		}
+		while (last != nullptr) {
+			last = last->ptr;
+		}
+		last->ptr = temp;
+
+		return;
+
+	}
+	void print() {
+		Node* temp = head;
+		while (temp != nullptr) {
+			cout << temp->data << endl;
+			temp = temp->ptr;
+		}
+	}
 
 };
 
